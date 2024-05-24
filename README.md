@@ -1,0 +1,5 @@
+# control_segur_access_usuaris
+Projecte control segur d'accés d'usuaris
+
+  En l'era digital actual, la seguretat física dels sistemes i la protecció de dades s'han convertit en aspectes fonamentals per a empreses, espais públics i institucions, donada l'augment de la connectivitat i la dependència de les tecnologies. Amb això en ment, el nostre projecte busca desenvolupar un sistema de control d'accés físic que integri tecnologies avançades d'identificació i autenticació, amb l'objectiu de garantir mecanismes segurs, eficients i sostenibles per a la gestió d'entrades i sortides en qualsevol entorn o instal·lació. A més, el sistema d'accés inclou mesures de seguretat com la transmissió de dades pel protocol HTTPS i una connexió VPN per protegir les dades entre el servidor i la Raspberry Pi, juntament amb un sistema de protecció per a les targetes físiques per evitar l'accés no autoritzat. A més, es proporciona un manual detallat per a administradors de sistemes, que inclou instruccions sobre el muntatge del dispositiu físic, la configuració de la Raspberry Pi Zero, la seguretat del sistema i la implementació del sistema d'autenticació, tant físic com web.
+
