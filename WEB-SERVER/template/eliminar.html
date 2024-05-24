@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/eliminar.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/imagenes/BLAU - sense fons.png" alt="Logo Empresa">
+        </div>
+        <div class="welcome-message">
+            <h1>Tech Innovation</h1>
+            <p>Panel de control de la base de datos <span id="database-name">BETA</span></p>
+        </div>
+        <div class="logout-button">
+            <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        </div>
+    </header>
+    <aside class="menu">
+        <h2>Menú Gestión</h2>
+        <ul>
+            <li><a class="menu-1" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a class="menu-1" href="{{ url_for('consultar') }}">Consultar</a></li>
+            <li><a class="menu-1" href="{{ url_for('modificar') }}">Modificar</a></li>
+            <li><a class="menu-1" href="{{ url_for('insertar') }}">Insertar</a></li>
+            <li><a class="menu-1" href="{{ url_for('eliminar') }}">Eliminar</a></li>
+        </ul>        
+    </aside>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form id="deleteForm" action="{{ url_for('eliminar_usuario') }}" method="POST">
+            <label for="userId">ID del usuario que desea eliminar:</label>
+            <input type="number" id="userId" name="userId" required>
+            <button type="submit" onclick="return confirmDelete();">Eliminar Usuario</button>
+        </form>
+    </main>
+    
+    <script>
+    function confirmDelete() {
+        var userId = document.getElementById('userId').value;
+        return confirm('¿Está seguro que desea eliminar el usuario con ID ' + userId + '?');
+    }
+    </script>
+</body>
+</html>

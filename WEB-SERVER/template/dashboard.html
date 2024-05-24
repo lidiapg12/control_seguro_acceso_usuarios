@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/imagenes/BLAU - sense fons.png" alt="Logo Empresa">
+        </div>
+        <div class="welcome-message">
+            <h1>Bienvenido al Dashboard, <span id="username">Tech Innovation</span></h1>
+            <p>Panel de control de la base de datos <span id="database-name">BETA</span></p>
+        </div>
+        <div class="logout-button">
+            <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        </div>
+    </header>
+    <aside class="menu">
+        <h2>Menú Gestión</h2>
+        <ul>
+            <li><a class="menu-1" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a class="menu-1" href="{{ url_for('consultar') }}">Consultar</a></li>
+            <li><a class="menu-1" href="{{ url_for('modificar') }}">Modificar</a></li>
+            <li><a class="menu-1" href="{{ url_for('insertar') }}">Insertar</a></li>
+            <li><a class="menu-1" href="{{ url_for('eliminar') }}">Eliminar</a></li>
+        </ul>
+    </aside>    
+    <main>
+        <section>
+            <h2>Total de usuarios de la BBDD: {{ num_usuarios }}</h2>
+        </section>
+        <section>
+            <h2>Accesos por usuario ultimas 24h</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Tarjeta</th>
+                        <th>Nombre de Usuario</th>
+                        <th>Apellido de Usuario</th>
+                        <th>Accesos Permitidos</th>
+                        <th>Accesos Denegados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for acceso in accesos_por_usuario %}
+                    <tr>
+                        <td>{{ acceso[0] }}</td>
+                        <td>{{ acceso[1] }}</td>
+                        <td>{{ acceso[2] }}</td>
+                        <td>{{ acceso[3] }}</td>
+                        <td>{{ acceso[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Accesos a las puertas en las últimas 24 horas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Puerta</th>
+                        <th>Accesos Permitidos</th>
+                        <th>Accesos Denegados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for acceso in accesos_por_puerta %}
+                    <tr>
+                        <td>{{ acceso[0] }}</td>
+                        <td>{{ acceso[1] }}</td>
+                        <td>{{ acceso[2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,68 @@
+/* Estilos para el contenedor principal */
+.container {
+    width: 90%; /* Utilizar el 90% del ancho de la ventana */
+    max-width: 400px; /* Máximo ancho del contenedor */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrar el contenido */
+}
+
+/* Estilos para el logo */
+.logo img {
+    max-width: 100%; /* Ajustar la imagen al ancho del contenedor */
+    height: auto; /* Mantener la proporción de aspecto */
+    margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Incluir padding en el ancho total */
+}
+
+/* Estilos para el botón de inicio de sesión */
+.btn-login {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para dispositivos de pantalla pequeña */
+@media only screen and (max-width: 600px) {
+    input[type="text"],
+    input[type="password"] {
+        width: 80%;
+    }
+}
+
+/* Estilos para el mensaje de error */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}

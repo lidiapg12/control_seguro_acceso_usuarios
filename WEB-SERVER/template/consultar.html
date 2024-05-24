@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/consultar.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/imagenes/BLAU - sense fons.png" alt="Logo Empresa">
+        </div>
+        <div class="welcome-message">
+            <h1>Tech Innovation</h1>
+            <p>Panel de control de la base de datos <span id="database-name">BETA</span></p>
+        </div>
+        <div class="logout-button">
+            <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        </div>
+    </header>
+    <aside class="menu">
+        <h2>Menú Gestión</h2>
+        <ul>
+            <li><a class="menu-1" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a class="menu-1" href="{{ url_for('consultar') }}">Consultar</a></li>
+            <li><a class="menu-1" href="{{ url_for('modificar') }}">Modificar</a></li>
+            <li><a class="menu-1" href="{{ url_for('insertar') }}">Insertar</a></li>
+            <li><a class="menu-1" href="{{ url_for('eliminar') }}">Eliminar</a></li>
+        </ul>
+    </aside>
+    <main>
+        <!-- Contenido principal aquí -->
+        <div class="botones-principales">
+            <button type="button" onclick="window.location.href='/usuarios'">Usuarios</button>
+            <button type="button" onclick="window.location.href='/tarjetas'">Tarjeta</button>
+            <button type="button" onclick="window.location.href='/logs'">Logs</button>
+            <button type="button" onclick="window.location.href='/accesos'">Accesos</button>
+        </div>
+        <table>
+            <thead>
+                {% if tipo == 'usuarios' %}
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>ID Tarjeta</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Estado</th>
+                    <th>Fecha Alta</th>
+                </tr>
+                {% elif tipo == 'tarjetas' %}
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>UID</th>
+                    <th>Clave</th>
+                </tr>
+                {% elif tipo == 'logs' %}
+                <tr>
+                    <th>Fecha y Hora</th>
+                    <th>ID Tarjeta</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Puerta</th>
+                    <th>Acceso</th>
+                </tr>
+                {% elif tipo == 'accesos' %}
+                <tr>
+                    <th>ID Usuario</th>
+                    <th>Puerta 1</th>
+                    <th>Puerta 2</th>
+                    <th>Puerta 3</th>
+                    <th>Puerta 4</th>
+                    <th>Puerta 5</th>
+                </tr>
+                {% endif %}
+            </thead>
+            <tbody>
+                {% for item in datos %}
+                <tr>
+                    {% if tipo == 'usuarios' %}
+                    <td>{{ item.ID_Usuario }}</td>
+                    <td>{{ item.ID_Targeta }}</td>
+                    <td>{{ item.Nombre }}</td>
+                    <td>{{ item.Apellido }}</td>
+                    <td>{{ item.Estado }}</td>
+                    <td>{{ item.Fecha_Targeta }}</td>
+                    {% elif tipo == 'tarjetas' %}
+                    <td>{{ item.ID_usuari_Key }}</td>
+                    <td>{{ item.ID }}</td>
+                    <td>{{ item.Clave }}</td>
+                    {% elif tipo == 'logs' %}
+                    <td>{{ item.Fecha_Hora }}</td>
+                    <td>{{ item.ID_Tarjeta }}</td>
+                    <td>{{ item.Nombre_Usuario }}</td>
+                    <td>{{ item.Apellido_Usuario }}</td>
+                    <td>{{ item.Puerta }}</td>
+                    <td>{{ item.Acceso }}</td>
+                    {% elif tipo == 'accesos' %}
+                    <td>{{ item.ID_Usuario_Acceso }}</td>
+                    <td>{{ item.Puerta_1 }}</td>
+                    <td>{{ item.Puerta_2 }}</td>
+                    <td>{{ item.Puerta_3 }}</td>
+                    <td>{{ item.Puerta_4 }}</td>
+                    <td>{{ item.Puerta_5 }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>            
+        </table>        
+    </main>
+</body>
+</html>

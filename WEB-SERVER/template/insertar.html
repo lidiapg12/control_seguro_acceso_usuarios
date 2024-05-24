@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inserción Completo</title>
+    <link rel="stylesheet" href="../static/css/insertar.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/imagenes/BLAU - sense fons.png" alt="Logo Empresa">
+        </div>
+        <div class="welcome-message">
+            <h1>Tech Innovation</h1>
+            <p>Panel de control de la base de datos <span id="database-name">BETA</span></p>
+        </div>
+        <div class="logout-button">
+            <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        </div>
+    </header>
+    <aside class="menu">
+        <h2>Menú Gestión</h2>
+        <ul>
+            <li><a class="menu-1" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a class="menu-1" href="{{ url_for('consultar') }}">Consultar</a></li>
+            <li><a class="menu-1" href="{{ url_for('modificar') }}">Modificar</a></li>
+            <li><a class="menu-1" href="{{ url_for('insertar') }}">Insertar</a></li>
+            <li><a class="menu-1" href="{{ url_for('eliminar') }}">Eliminar</a></li>
+        </ul>
+    </aside>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <div id="mensaje-container">
+                    <ul>
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form action="/insertar_todo" method="post" enctype="multipart/form-data">
+            <h2>Datos del Usuario</h2>
+            <label for="id_targeta">ID de la Tarjeta:</label>
+            <input type="text" id="id_targeta" name="id_targeta" required><br>
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido"><br>
+
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado" required>
+                <option value="0">Inactivo</option>
+                <option value="1">Activo</option>
+            </select><br>
+
+            <h2>Datos de la Clave de la Tarjeta</h2>
+            <label for="clave_id">UID:</label>
+            <input type="text" id="clave_id" name="clave_id" required><br>
+
+            <label for="clave">Clave:</label>
+            <input type="text" id="clave" name="clave" required><br>
+
+            <h2>Datos de Acceso</h2>
+            <label for="puerta_1">Puerta 1:</label>
+            <select id="puerta_1" name="puerta_1" required>
+                <option value="0">Denegada</option>
+                <option value="1">Permitida</option>
+            </select><br>
+
+            <!-- Repetir según el número de puertas deseadas, aquí solo muestro hasta la puerta 2 por brevedad -->
+            <label for="puerta_2">Puerta 2:</label>
+            <select id="puerta_2" name="puerta_2" required>
+                <option value="0">Denegada</option>
+                <option value="1">Permitida</option>
+            </select><br>
+
+            <label for="puerta_3">Puerta 3:</label>
+            <select id="puerta_3" name="puerta_3" required>
+                <option value="0">Denegada</option>
+                <option value="1">Permitida</option>
+            </select><br>
+
+            <label for="puerta_4">Puerta 4:</label>
+            <select id="puerta_4" name="puerta_4" required>
+                <option value="0">Denegada</option>
+                <option value="1">Permitida</option>
+            </select><br>
+
+            <label for="puerta_5">Puerta 5:</label>
+            <select id="puerta_5" name="puerta_5" required>
+                <option value="0">Denegada</option>
+                <option value="1">Permitida</option>
+            </select><br>
+
+            <h2>Subir un Archivo ZIP</h2>
+            <label for="archivo_zip">Archivo ZIP:</label>
+            <input type="file" id="archivo_zip" name="archivo_zip" accept=".zip" required><br>
+
+            <button type="submit" id="enviar_datos">Enviar Datos</button>
+        </form>
+    </main>    
+    <script src="../static/js/insertar.js"></script> <!-- Incluye tu archivo JavaScript -->
+</body>
+</html>

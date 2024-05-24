@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/modificar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/modificar.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/imagenes/BLAU - sense fons.png" alt="Logo Empresa">
+        </div>
+        <div class="welcome-message">
+            <h1>Tech Innovation</h1>
+            <p>Panel de control de la base de datos <span id="database-name">BETA</span></p>
+        </div>
+        <div class="logout-button">
+            <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        </div>
+    </header>
+    <aside class="menu">
+        <h2>Menú Gestión</h2>
+        <ul>
+            <li><a class="menu-1" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a class="menu-1" href="{{ url_for('consultar') }}">Consultar</a></li>
+            <li><a class="menu-1" href="{{ url_for('modificar') }}">Modificar</a></li>
+            <li><a class="menu-1" href="{{ url_for('insertar') }}">Insertar</a></li>
+            <li><a class="menu-1" href="{{ url_for('eliminar') }}">Eliminar</a></li>
+        </ul>
+    </aside>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="{{ url_for('cambiar_estado_tarjeta') }}">
+            <h2>Cambiar estado de la tarjeta:</h2>
+            <label for="id_usuario">ID del Usuario:</label>
+            <input type="text" id="id_usuario" name="id_usuario" required><br>
+            <label for="nuevo_estado">Nuevo Estado:</label>
+            <select id="nuevo_estado" name="nuevo_estado" required>
+                <option value="1">Activa</option>
+                <option value="0">Inactiva</option>
+            </select><br>
+            <input type="submit" value="Cambiar Estado">
+        </form>
+        <form method="POST" action="{{ url_for('actualizar_clave') }}">
+            <h2>Modificar Clave:</h2>
+            <label for="id_usuari">ID del Usuario:</label>
+            <input type="text" id="id_usuari" name="id_usuari" required><br>
+            <label for="nueva_clave">Nueva Clave:</label>
+            <input type="number" id="nueva_clave" name="nueva_clave" required><br>
+            <input type="submit" value="Actualizar Clave">
+        </form>
+        <form method="POST" action="{{ url_for('modificar_accesos') }}">
+            <h2>Modificar Accesos:</h2>
+            <label for="id_usuario_acceso">ID del Usuario:</label>
+            <input type="text" id="id_usuario_acceso" name="id_usuario_acceso" required><br>
+            
+            <label>Puertas:</label>
+            <div>
+                <label for="puerta_1">Puerta 1:</label>
+                <input type="checkbox" id="puerta_1" name="puerta_1"><br>
+                <label for="puerta_2">Puerta 2:</label>
+                <input type="checkbox" id="puerta_2" name="puerta_2"><br>
+                <label for="puerta_3">Puerta 3:</label>
+                <input type="checkbox" id="puerta_3" name="puerta_3"><br>
+                <label for="puerta_4">Puerta 4:</label>
+                <input type="checkbox" id="puerta_4" name="puerta_4"><br>
+                <label for="puerta_5">Puerta 5:</label>
+                <input type="checkbox" id="puerta_5" name="puerta_5"><br>
+            </div>
+            <input id="actualizar_acceso" type="submit" value="Actualizar Accesos">
+        </form>
+    </main>
+    <script src="/static/js/modificar.js"></script>
+</body>
+</html>

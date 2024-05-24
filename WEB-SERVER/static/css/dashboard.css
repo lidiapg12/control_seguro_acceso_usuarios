@@ -1,0 +1,142 @@
+/* Estils per a l'encapçalament */
+header {
+    background-color: #333; /* Color de fons de l'encapçalament */
+    color: #fff; /* Color del text de l'encapçalament */
+    padding: 30px; /* Espaiat interior de l'encapçalament */
+    display: flex; /* Utilitzem flexbox per alinear els elements internament */
+    justify-content: space-between; /* Espaiat equitatiu entre els elements de l'encapçalament */
+    align-items: center; /* Centrem verticalment els elements de l'encapçalament */
+    position: fixed; /* L'encapçalament estarà fixat a la part superior de la pàgina */
+    top: 0;
+    left: 0;
+    width: 100%; /* Amplada completa de l'encapçalament */
+    z-index: 1; /* Assegurem que l'encapçalament estigui per sobre del menú */
+}
+
+.logo img {
+    width: 100px; /* Amplada de la imatge del logotip */
+}
+
+.welcome-message h1 {
+    font-size: 36px; /* Mida de la font del missatge de benvinguda */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Font del missatge de benvinguda */
+    margin-bottom: 20px; /* Espaiat inferior del missatge de benvinguda */
+}
+
+.logout-button {
+    margin-right: 40px; /* Ajustem el marge dret del botó de tancar sessió */
+}
+
+.logout-button a {
+    color: #fff; /* Color del text del botó de tancar sessió */
+    text-decoration: none; /* Sense subratllat al text del botó */
+    padding: 12px 24px; /* Espaiat interior del botó */
+    background-color: #f44336; /* Color de fons del botó de tancar sessió */
+    border-radius: 4px; /* Raonat de les cantonades del botó */
+}
+
+.logout-button a:hover {
+    background-color: #d32f2f; /* Color de fons en estat d'interacció (hover) */
+}
+
+/* Estils per al menú LATERAL*/
+.menu {
+    background-color: #444; /* Color de fons del menú */
+    color: #fff; /* Color del text del menú */
+    padding: 20px; /* Espaiat interior del menú */
+    position: fixed; /* El menú estarà fixat a la part superior de la pàgina */
+    top: 180px; /* Ajustem la distància des de la part superior */
+    left: 0;
+    bottom: 0;
+    width: 200px; /* Amplada del menú */
+    z-index: 0; /* Assegurem que el menú estigui darrere de l'encapçalament */
+}
+
+.menu-1 {
+    margin-top: 50px; /* Afegim un marge superior més gran al títol */
+}
+
+.menu h2 {
+    margin-top: 20px; /* Afegim un marge superior més gran al títol */
+    margin-left: 10px; /* Ajustem el marge esquerre per moure els elements cap a la dreta */
+}
+
+.menu ul {
+    list-style: none; /* Eliminem els estils de llista */
+    padding: 0;
+    margin: 50px 0 0 0; /* Ajustem el marge superior del ul */
+}
+
+.menu ul li {
+    margin-bottom: 20px; /* Mantenim el marge inferior de cada element li */
+    margin-left: 30px; /* Ajustem el marge esquerre per moure els elements cap a la dreta */
+}
+
+.menu ul li a {
+    color: #fff; /* Color del text dels enllaços del menú */
+    text-decoration: none; /* Sense subratllat en els enllaços */
+    font-size: 16px; /* Mida de la font dels enllaços del menú */
+}
+
+.menu ul li a:hover {
+    text-decoration: underline; /* Subratllat en estat d'interacció (hover) */
+}
+
+main {
+    margin-left: 220px; /* Ajustem el marge esquerre per deixar espai al menú */
+}
+
+/* Estils per a main amb ajust de marge superior */
+main {
+    margin-left: 220px; /* Ajustem el marge esquerre per deixar espai al menú */
+    margin-top: 150px; /* Marge superior ajustat */
+    padding: 20px; /* Espaiat interior de l'element main */
+}
+
+/*MAIN*/
+main {
+    margin-top: 180px; /* Deixa espai per a l'encapçalament fixat */
+    margin-left: 220px; /* Deixa espai per al menú lateral */
+    padding: 20px; /* Afegeix un espai intern al contingut */
+}
+
+/* Estils per a les seccions */
+section {
+    margin-bottom: 40px; /* Espai entre seccions */
+}
+
+/* Estils per als títols de secció */
+section h2 {
+    font-size: 24px; /* Mida del títol */
+    margin-bottom: 20px; /* Espai inferior al títol */
+}
+
+/* Estils per a les taules */
+table {
+    width: 100%; /* Amplada de la taula */
+    border-collapse: collapse; /* Col·lapsa els contorns de la taula */
+}
+
+/* Estils per a les cel·les de l'encapçalament */
+th {
+    background-color: #424141; /* Color de fons */
+    color: #fff; /* Color del text */
+    padding: 12px; /* Espaiat intern */
+    text-align: left; /* Alineació del text */
+}
+
+/* Estils per a les cel·les de dades */
+td {
+    border: 1px solid #ddd; /* Bord de la cel·la */
+    padding: 12px; /* Espaiat intern */
+}
+
+/* Estils per a les files imparells */
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Color de fons */
+}
+
+/* Estils per a les files quan el cursor hi passa per sobre */
+tbody tr:hover {
+    background-color: #ddd; /* Color de fons */
+}

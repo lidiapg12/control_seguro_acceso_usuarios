@@ -1,0 +1,221 @@
+/* Estilos para el header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Aseguramos que el header esté por encima del menú */
+}
+
+.logo img {
+    width: 100px;
+}
+
+.welcome-message h1 {
+    font-size: 36px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+.logout-button {
+    margin-right: 40px; /* Ajustamos el margen derecho del botón de cerrar sesión */
+}
+
+.logout-button a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    background-color: #f44336;
+    border-radius: 4px;
+}
+
+.logout-button a:hover {
+    background-color: #d32f2f;
+}
+
+
+
+
+/* Estilos para el menú  ASIDE*/
+.menu {
+    background-color: #444;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 180px; /* Ajustamos la distancia desde la parte superior */
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    z-index: 0; /* Aseguramos que el menú esté detrás del header */
+}
+
+.menu-1 {
+    margin-top: 50px; /* Añadimos un margen superior más grande al título */
+}
+
+.menu h2 {
+    margin-top: 20px; /* Añadimos un margen superior más grande al título */
+    margin-left: 10px; /* Ajustamos el margen izquierdo para mover los elementos hacia la derecha */
+
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 50px 0 0 0; /* Ajustamos el margen superior del ul */
+}
+
+.menu ul li {
+    margin-bottom: 20px; /* Mantenemos el margen inferior de cada elemento li */
+    margin-left: 30px; /* Ajustamos el margen izquierdo para mover los elementos hacia la derecha */
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.menu ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    margin-left: 220px; /* Ajustamos el margen izquierdo para dejar espacio al menú */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Aseguramos que el header esté por encima del menú */
+}
+
+.logo img {
+    width: 100px;
+}
+
+.welcome-message h1 {
+    font-size: 36px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+.logout-button a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    background-color: #f44336;
+    border-radius: 4px;
+}
+
+.logout-button a:hover {
+    background-color: #d32f2f;
+}
+
+
+
+/* POP UP */
+/* Estilos base para alertas */
+.alert {
+    padding: 10px 20px;
+    margin: 10px 10px 10px 220px; /* Margen izquierdo para no superponer el menú lateral */
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    position: relative; /* Posicionamiento relativo para apilamiento correcto */
+    z-index: 2; /* Aseguramos que los mensajes estén sobre otros elementos básicos */
+}
+
+/* Estilos específicos para el tipo de alerta */
+.alert-success {
+    background-color: #4CAF50; /* Verde para éxito */
+}
+
+.alert-error {
+    background-color: #f44336; /* Rojo para error */
+}
+
+/* Ajustes generales para el contenido principal */
+main {
+    margin-left: 220px; /* Espacio para el menú lateral */
+    margin-top: 190px; /* Espacio para evitar la superposición con el header */
+    padding: 20px; /* Espaciado interior para mayor claridad */
+}
+
+/* Estilos específicos para el formulario */
+#deleteForm {
+    background: #fff; /* Fondo blanco para mejor visibilidad */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para destacar el formulario */
+    width: 90%; /* Ancho ajustable según el diseño */
+    max-width: 500px; /* Máximo ancho para no ocupar toda la pantalla */
+    margin: 0 auto; /* Centrado */
+}
+#deleteForm input {
+    display: block; /* Los elementos del formulario en bloques individuales */
+    width: 96%; /* Aprovechar el ancho del contenedor */
+    margin-bottom: 10px; /* Espacio entre elementos del formulario */
+}
+
+
+#deleteForm label, #deleteForm button {
+    display: block; /* Los elementos del formulario en bloques individuales */
+    width: 100%; /* Aprovechar el ancho del contenedor */
+    margin-bottom: 10px; /* Espacio entre elementos del formulario */
+}
+
+#deleteForm input, #deleteForm button {
+    height: 40px; /* Altura adecuada para la interacción */
+    padding: 0 10px; /* Padding interno para texto */
+    border: 1px solid #ccc; /* Borde sutil */
+}
+
+#deleteForm button {
+    background-color: #4CAF50; /* Color de fondo para el botón */
+    color: white; /* Texto en blanco para contraste */
+    border: none; /* Sin borde adicional */
+    cursor: pointer; /* Cursor de mano para indicar acción */
+}
+
+#deleteForm button:hover {
+    background-color: #45a049; /* Oscurecimiento al pasar el ratón */
+}
+
+/* Respuesta para vistas más pequeñas */
+@media (max-width: 768px) {
+    main {
+        margin-left: 0; /* Remueve el margen izquierdo en pantallas pequeñas */
+        margin-top: 80px; /* Ajuste superior para pequeñas pantallas */
+    }
+}
+
+
+/* Eliminar flechas de los inputs tipo número en Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Eliminar flechas de los inputs tipo número en Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
